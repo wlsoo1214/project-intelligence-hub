@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Azure Functions
+bin/
+obj/
+.funcignore
+local.settings.json  <-- CRITICAL: Never upload this (holds secrets)
+
+# IDE
+.vscode/
+.idea/
