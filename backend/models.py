@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 
 class TaskItem(BaseModel):
-    # Title is required. We use description to guide the AI.
+
     title: str = Field(description="A concise, action-oriented summary of the task")
     
     description: Optional[str] = Field(default="", description="Detailed context")

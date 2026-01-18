@@ -13,11 +13,9 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 def ingest(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('AI Ingest function triggered.')
 
-    # 1. Configure the AI (The Brain) - Modern Client Pattern
+    # 1. Configure the AI (The Brain)
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        # In 2026, it's best practice to let the Client find the env var automatically, 
-        # but explicit checks are still good for debugging.
         return func.HttpResponse("Error: GEMINI_API_KEY is missing.", status_code=500)
 
     # Initialize the Modern Client
@@ -68,7 +66,7 @@ def ingest(req: func.HttpRequest) -> func.HttpResponse:
         ai_data = json.loads(response.text)
         validated_result = ExtractionResult(**ai_data)
 
-        # 6. Success!
+        # 6. Return the Result
         return func.HttpResponse(
             json.dumps({
                 "status": "success", 
