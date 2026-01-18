@@ -10,7 +10,7 @@ env/
 bin/
 obj/
 .funcignore
-local.settings.json  <-- CRITICAL: Never upload this (holds secrets)
+local.settings.json 
 
 # IDE
 .vscode/
